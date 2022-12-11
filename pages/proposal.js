@@ -5,11 +5,12 @@ const Proposal = () => {
   return (
     <>
       <Navbar />
-      <section id="proposal" className="py-5">
-        <div className="container">
+      <section id="proposal" className="pt-4">
+        <div className="container-fluid">
+        <h2 className="display-5 text-center mb-4">Add Fruit Details</h2>
           <div class="card">
-            {/* <div className="card-header text-center">
-              <h2 className="display-5">Add Fruit Details</h2>
+            {/* <div className="card-header ">
+              
             </div> */}
             <div className="card-body">
               <form>

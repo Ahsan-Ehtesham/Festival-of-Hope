@@ -25,9 +25,17 @@
 }
 
 #proposal {
+  display: flex;
   .card {
+    margin: 0 auto;
+    max-width: 50%;
     border-radius: 25px;
     background: #ffffff;
     box-shadow: 24px 24px 48px #cccccc, -24px -24px 48px #ffffff;
+    @media (max-width: 767px) {
+      /* Rules for smartphones only */
+      max-width: 100%;
+      margin: 0 10px;
+    }
   }
 }
