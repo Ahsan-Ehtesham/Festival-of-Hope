@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -14,9 +15,9 @@ const Header = () => {
                 With its constantly growing community, its never too late for
                 you to contribute to this safe haven.
               </p>
-              <a href="/">
+              <Link href="/">
                 <button className="btn btn-success">Contribute Now</button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
