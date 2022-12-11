@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
@@ -7,7 +8,14 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link href="/" legacyBehavior>
-            <a className="navbar-brand">Navbar</a>
+            <a className="navbar-brand">
+              <Image
+                src="/images/logo.svg"
+                alt="logo"
+                width={100}
+                height={50}
+              />
+            </a>
           </Link>
           <button
             className="navbar-toggler"
