@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Navbar = () => {
   return (
@@ -49,10 +50,16 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-
-            <button className="btn btn-outline-success" type="submit">
+            <ConnectButton
+              label="Connect Wallet"
+              accountStatus={{
+                smallScreen: "avatar",
+                largeScreen: "full",
+              }}
+            />
+            {/* <button className="btn btn-outline-success" type="submit">
               Connect Wallet
-            </button>
+            </button> */}
           </div>
         </div>
       </nav>

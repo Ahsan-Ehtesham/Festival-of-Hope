@@ -3,6 +3,7 @@ import { BsFillGridFill } from "react-icons/bs";
 import { GiCardRandom } from "react-icons/gi";
 import { BiDollarCircle } from "react-icons/bi";
 import { FiFilter } from "react-icons/fi";
+import Link from "next/link";
 // import Image from "next/image";
 
 const Discover = () => {
@@ -66,9 +67,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 14.99 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -90,9 +93,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 20.99 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -114,9 +119,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 50.99 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -138,9 +145,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 25.19 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -164,9 +173,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 14.99 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -188,9 +199,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 20.99 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -212,9 +225,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 50.99 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -236,9 +251,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 25.19 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -262,9 +279,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 14.99 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -286,9 +305,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 20.99 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -310,9 +331,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 50.99 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -334,9 +357,11 @@ const Discover = () => {
                         <h6 className="m-0">$ 25.19 ETH</h6>
                       </div>
                       <div>
-                        <button type="button" className="btn btn-dark">
-                          Place A Bid
-                        </button>
+                        <Link href="components/Details">
+                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+                            Place A Bid
+                          </button></a>
+                        </Link>
                       </div>
                     </div>
                   </div>
