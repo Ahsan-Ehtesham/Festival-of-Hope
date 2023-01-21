@@ -1,22 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BsFillGridFill } from "react-icons/bs";
 import { GiCardRandom } from "react-icons/gi";
 import { BiDollarCircle } from "react-icons/bi";
 import { FiFilter } from "react-icons/fi";
-import Link from "next/link";
+// import Link from "next/link";
+import { useRouter } from "next/router";
+
 // import Image from "next/image";
 
 const Discover = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Make a request to the API to retrieve the data
+    fetch("http://localhost:3000/api/data")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        // console.log(data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <>
       <section id="discover" className="py-5">
         <div className="container">
           <div className="row">
             <h2 className="display-6 pb-3">Discover</h2>
-            <div
-              className="btn-toolbar justify-content-between"
-              role="toolbar"
-            >
+            <div className="btn-toolbar justify-content-between" role="toolbar">
               <div
                 className="d-flex flex-column flex-md-row mb-2 mb-md-0"
                 role="group"
@@ -50,323 +62,37 @@ const Discover = () => {
               </div>
             </div>
 
-            <div className="nfts row row-cols-1 row-cols-md-4 g-4">
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Apple Mustard</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 14.99 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
+            <div className="nfts row row-cols-1 row-cols-md-4 g-4 p-0 m-0">
+              {data.map((item) => (
+                <div className="col" key={item.id}>
+                  <div className="card h-100">
+                    <img src={item.img} className="card-img-top" alt="..." />
+                    <div className="card-body">
+                      <h5 className="card-title">{item.title}</h5>
+                      <h6 className="card-subtitle mb-4 text-muted">
+                        By {item.creator}
+                      </h6>
+                      <div className="bid d-flex justify-content-between align-items-end">
+                        <div>
+                          <p className="m-0 text-muted">Current Bid</p>
+                          <h6 className="m-0">$ {item.price} ETH</h6>
+                        </div>
+                        <div>
+                          {/* <Link href="components/Details"> */}
+                          {/* <a className="nav-link"> */}
+                          {/* <Link href='/components/Details' as={`/components/Details/${data}`}> */}
+                          <button type="button" className="btn btn-dark">
                             Place A Bid
-                          </button></a>
-                        </Link>
+                          </button>
+                          {/* </Link> */}
+                          {/* </a> */}
+                          {/* </Link> */}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1576181177940-cb8592693079?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Orange King</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 20.99 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Mango Masala</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 50.99 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1490885578174-acda8905c2c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Pineapple Pine</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 25.19 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="nfts row row-cols-1 row-cols-md-4 g-4">
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Apple Mustard</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 14.99 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1576181177940-cb8592693079?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Orange King</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 20.99 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Mango Masala</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 50.99 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1490885578174-acda8905c2c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Pineapple Pine</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 25.19 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="nfts row row-cols-1 row-cols-md-4 g-4">
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1579613832125-5d34a13ffe2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Apple Mustard</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 14.99 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1576181177940-cb8592693079?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Orange King</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 20.99 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1553279768-865429fa0078?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Mango Masala</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 50.99 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card h-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1490885578174-acda8905c2c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
-                    className="card-img-top"
-                    alt="..."
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Pineapple Pine</h5>
-                    <h6 className="card-subtitle mb-4 text-muted">By AE</h6>
-                    <div className="bid d-flex justify-content-between align-items-end">
-                      <div>
-                        <p className="m-0 text-muted">Current Bid</p>
-                        <h6 className="m-0">$ 25.19 ETH</h6>
-                      </div>
-                      <div>
-                        <Link href="components/Details">
-                          <a className="nav-link"> <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button></a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
