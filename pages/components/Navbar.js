@@ -51,7 +51,6 @@ const Navbar = () => {
               </li>
             </ul>
             <ConnectButton
-              label="Connect Wallet"
               accountStatus={{
                 smallScreen: "avatar",
                 largeScreen: "full",
