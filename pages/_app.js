@@ -8,29 +8,29 @@ import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { mainnet, polygon, optimism, arbitrum } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
-import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
-import celoGroups from "@celo/rainbowkit-celo/lists"
-import { Alfajores, Celo } from "@celo/rainbowkit-celo/chains";
-
-const { chains, provider } = configureChains(
-  [Alfajores, Celo],
-  [jsonRpcProvider({ rpc: (chain) => ({ http: chain.rpcUrls.default }) })]
-);
+// import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
+// import celoGroups from "@celo/rainbowkit-celo/lists"
+// import { Alfajores, Celo } from "@celo/rainbowkit-celo/chains";
 
 // const { chains, provider } = configureChains(
-//   [mainnet, polygon, optimism, arbitrum],
-//   [
-//     alchemyProvider({ apiKey: "_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC" }),
-//     publicProvider(),
-//   ]
+//   [Alfajores, Celo],
+//   [jsonRpcProvider({ rpc: (chain) => ({ http: chain.rpcUrls.default }) })]
 // );
+
+const { chains, provider } = configureChains(
+  [mainnet, polygon, optimism, arbitrum],
+  [
+    alchemyProvider({ apiKey: "_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC" }),
+    publicProvider(),
+  ]
+);
 // This is Alchemy's default API key.
 // You can get your own at https://dashboard.alchemyapi.io
-// const { connectors } = getDefaultWallets({
-//   appName: "My RainbowKit App",
-//   chains,
-// });
-const connectors = celoGroups({chains})
+const { connectors } = getDefaultWallets({
+  appName: "My RainbowKit App",
+  chains,
+});
+// const connectors = celoGroups({chains})
 
 const wagmiClient = createClient({
   autoConnect: true,
