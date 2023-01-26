@@ -15,7 +15,7 @@ const Header = () => {
                 With its constantly growing community, its never too late for
                 you to contribute to this safe haven.
               </p>
-              <Link href="/">
+              <Link href="/contribute">
                 <button className="btn btn-success">Contribute Now</button>
               </Link>
             </div>
