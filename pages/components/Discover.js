@@ -3,10 +3,7 @@ import { BsFillGridFill } from "react-icons/bs";
 import { GiCardRandom } from "react-icons/gi";
 import { BiDollarCircle } from "react-icons/bi";
 import { FiFilter } from "react-icons/fi";
-// import Link from "next/link";
-import { useRouter } from "next/router";
-
-// import Image from "next/image";
+import Link from "next/link";
 
 const Discover = () => {
   const [data, setData] = useState([]);
@@ -78,15 +75,11 @@ const Discover = () => {
                           <h6 className="m-0">$ {item.price} ETH</h6>
                         </div>
                         <div>
-                          {/* <Link href="components/Details"> */}
-                          {/* <a className="nav-link"> */}
-                          {/* <Link href='/components/Details' as={`/components/Details/${data}`}> */}
-                          <button type="button" className="btn btn-dark">
-                            Place A Bid
-                          </button>
-                          {/* </Link> */}
-                          {/* </a> */}
-                          {/* </Link> */}
+                          <Link href="/components/Details">
+                            <button type="button" className="btn btn-dark">
+                              Place A Bid
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
