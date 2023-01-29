@@ -56,9 +56,6 @@ const Navbar = () => {
                 largeScreen: "full",
               }}
             />
-            {/* <button className="btn btn-outline-success" type="submit">
-              Connect Wallet
-            </button> */}
           </div>
         </div>
       </nav>
