@@ -1,4 +1,4 @@
-## Fruit Festival (Hackathon of Hope with Celo)
+## Fruit Festival
 
 <b>Theme Focused: Public Good / SocialFi</b>
 
